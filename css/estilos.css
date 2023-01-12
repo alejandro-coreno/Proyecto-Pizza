@@ -1,0 +1,862 @@
+/* Variables */
+:root {
+    --color-Primario--: #fcb03b;
+    --color-Secundario--: #e92f3d;
+    --color-BackGraund--: #eff6f5;
+    --color-texto: #a1a5a6;
+    --text-deaful: 'Open Sans';
+    --colorBackgraund-sombra--: #e92f3d30;
+}
+/* Estilos Generales de la pagina */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--text-deaful);
+}
+/* Le indicamos a nuestro html que realice el scrool de una manera que se pueda ver como si fuera una transicion. */
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--color-BackGraund--);
+}
+
+/* Estilos generales a nuestros titulos */
+.titulos {
+    font-size: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.subtitulos {
+    font-size: 25px;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--color-Primario--);
+    /* border: 1px solid #000; */
+}
+
+.btn {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    background-color: var(--color-Primario--);
+    padding: 15px 30px;
+    outline: none;
+    border: 2px solid var(--color-Primario--);
+    cursor: pointer;
+    position: relative;
+    top: 20px;
+    transition: all 0.3s;
+}
+
+.btn span {
+    padding-left: 10px;
+}
+
+.btn:hover {
+    padding: 15px 45px;
+}
+
+/* Menu Principal */
+
+.menu-principal {
+    /* border: 1px solid #000; */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 75px;
+    margin-top: 10px;
+    padding: 0 30px;
+    background-color: var(--color-BackGraund--);
+    /* Aplica dimensiones en el eje z para verlo un poco mas cerca */
+    z-index: 1;
+}
+
+.logo img {
+    /* border: 1px solid #000; */
+    width: 130px;
+    cursor: pointer;
+}
+
+/* Bara de navegacion enlaces */
+
+.menu-bar {
+    /* border: 2px solid #000; */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu-bar .enlaces ul li {
+    display: inline-block;
+    padding: 0px 10px;
+}
+
+.menu-bar ul li a {
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-texto);
+    /* Le indicamos la linea que aparece en nuestro hover */
+    background: linear-gradient(currentColor, currentColor);
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 3px;
+    transition: all 0.5s;
+}
+
+.menu-bar ul li a:hover {
+    background-size: 50% 2px;
+    color: var(--color-Secundario--);
+    /* color: blue; */
+}
+
+.menu-bar .sociales a {
+    font-size: 16px;
+    padding: 0px 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--color-texto);
+    transition: all 0.5s;
+}
+
+.menu-bar .sociales a:hover {
+    color: var(--color-Secundario--);
+}
+
+.menu-principal i {
+    cursor: pointer;
+    color: var(--color-texto);
+    font-size: 30px;
+    /* Le indicamos que siempre se quede a la derecha */
+    float: right;
+    transition: all 0.5s;
+    display: none;
+}
+
+.menu-principal i:hover {
+    color: var(--color-Secundario--);
+}
+
+/* Estilos de Seccion slider */
+
+#menu-productos .contenedor-principal {
+    display: flex;
+    align-items: center;
+    /* Le indicamos a nuestro contenedor principal que sea relative para que nuestros items con el 
+    posicion absoluto los podamos mover  */
+    position: relative;
+    z-index: 0;
+}
+
+.contenedor-principal #btn-izquierda,
+.contenedor-principal #btn-derecha {
+    position: absolute;
+    height: 10%;
+    width: 50px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 40px;
+    margin: 0px 15px;
+    color: var(--color-Secundario--);
+    z-index: 500;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.contenedor-principal #btn-izquierda:hover,
+.contenedor-principal #btn-derecha:hover {
+    background: var(--colorBackgraund-sombra--);
+    transform: translateY(5px);
+}
+
+.contenedor-principal #btn-izquierda {
+    left: 0;
+}
+
+.contenedor-principal #btn-derecha {
+    right: 0;
+}
+
+.slider {
+    display: flex;
+    overflow: hidden;
+    height: calc(100vh- 75px);
+    scroll-behavior:smooth  ;
+}
+
+.container-productos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Que tenga un tamaño base del 100% */
+    flex-basis: 100%;
+    /* Propiedad de decrecimiento que se encuentre en ceros los dos. */
+    flex-shrink: 0;
+}
+
+.descripcion-productos {
+    width: 30%;
+    /* border: 1px solid #000; */
+}
+
+.descripcion-productos h1 {
+    font-size: 5vw;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.descripcion-productos h2{
+    text-transform: lowercase;
+    font-size: 2.2vw;
+    font-weight: 100;
+}
+.descripcion-productos p{
+    color: var(--color-texto);
+    text-align: justify;
+    font-style: italic;
+}
+
+.imagen-productos{
+    /* border: 2px solid blue; */
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+.imagen-productos img{
+    /* border: 1px solid #000; */
+    width: 100%;
+    transition: all 1s;
+    /* cursor: pointer; */
+}
+
+.imagen-productos img:hover{
+    transform: scale(1.1);
+}
+
+/* SECCION SERVICIOS GRID */
+#servicios{
+    height: 100vh;
+    background: #fff;
+    padding: 40px;
+}
+
+.servicios-titulos{
+    /* border: 1px solid #000; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Aplicamos Estilos al grid  */
+
+.servicios-container{
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,auto);
+    grid-gap: 30px;
+    /* Creamos la estructura de nuestro grid como queremos que se vea */
+    grid-template-areas: " ingredientes imagen      rapidez"
+                         " calidad      imagen      delivery";
+}
+.ingredientes{
+    /* border: 1px solid #000; */
+    grid-column: ingredientes;
+    grid-row: ingredientes;
+}
+.calidad{
+    grid-area: calidad;
+}
+.rapidez{
+    grid-area: rapidez;
+}
+.delivery{
+    grid-area: delivery;
+}
+.imagen-central{
+    grid-area: imagen;
+    transition: all 1.5s;
+}
+.imagen-central:hover{
+    transform: rotate(90deg);
+}
+
+/* Estilos para los iconos seccion servicios grid*/
+.items{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.items span{
+    width: 95%;
+    font-size: 45px;
+    padding: 20px;
+    color: var(--color-Secundario--);
+    border: 5px double #dedede;
+    border-radius: 50%;
+    transition: all 0.5s;
+}
+.items span:hover{
+    background-color: var(--color-Secundario--);
+    color: #fff;
+}
+.calidad span:hover,
+.ingredientes span:hover{
+    background-color: var(--color-Primario--);
+    color: #fff;
+}
+.titulo-item{
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 5px 0;
+    text-align: center;
+}
+.items .text-item{
+    font-size: 14px;
+    font-style: italic;
+    padding: 10px 20px;
+    font-weight: 400;
+    color: var(--color-texto);
+}
+
+/* SECCION DE EQUIPO */
+#equipo{
+    height: 100vh;
+    display: flex;
+    /* border: 1px solid #000; */
+}
+.persona{
+    /* Aplicamos este estilo para que todas nuestros elementos tenga el mismo espacio "crece"*/
+    flex-grow: 1;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.5s;
+    /* border: 1px solid #000; */
+}
+
+.persona:hover{
+    flex-grow: 3;
+}
+
+.persona-imagen{
+    height: 100%;
+    position: absolute;
+    /* Con esta propiedad le indicamos que se mueva hacia la izquierda 50% para que con el traslate lo regresemos
+    a la posicion del centro */
+    left: 50%;
+    transform: translateX(-50%);
+    /* Permite aplicar filtros dentro de nuestras imagenes */
+    filter:grayscale(80%)
+}
+
+.persona:hover .persona-imagen{
+    filter: grayscale(0%);
+}
+
+.persona-info{
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    width: 100%;
+    transition: all 0.1s;
+    /* Nos permite quitar nuestra informacion */
+    opacity: 0;
+}
+.persona:hover .persona-info{
+    opacity: 1;
+    bottom: 60px;
+    transition-delay: 0.3s;
+}
+
+
+.persona-info h2{
+    font-size: 30px;
+    font-weight: 600;
+    color: #000;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    /* opacity: 0; */
+}
+.persona-info p{
+    font-size: 20px;
+    color: var(--color-Secundario--);
+    font-weight: 700;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 3px rgba(255, 0, 0, 0.5);
+    font-style: italic;
+    /* opacity: ; */
+}
+.social-media a{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    color:#fff;
+    background: var(--color-Secundario--);
+    /* Nos ayuda esta propiedad para centrar texto */
+    line-height: 40px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 0px 5px;
+    transition: all 0.5s;
+}
+.social-media a:hover{
+    color: var(--color-Secundario--);
+    background: transparent;
+    transform: scale(2);
+}
+
+/* SECCION INGREDIENTES */
+#ingredientes{
+    /* margin-top: 30px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ingre{
+    flex-grow: 1;
+    overflow: hidden;
+    position: relative;
+    height: 250px;
+}
+
+.imagen-ingre{
+    position: absolute;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.info-ingre{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    transition: all 0.3s;
+}
+
+.info-ingre p{
+    font-size: 28px;
+    color:#fff;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+.info-ingre:hover{
+    background: rgba(0, 0, 0,0.10);
+}
+.info-ingre:hover p{
+    transform: translateY(10px);
+}
+
+/* SECCION CONTACTO */
+
+#contacto{
+    height: 100vh;
+    padding: 60px;
+    position: relative;
+    /* border: 1px solid #000; */
+}
+#formulario{
+    width: 70%;
+    margin: 50px auto;
+}
+.two-fields{
+    display: flex;
+    justify-content: space-between;
+}
+.input-text, .input-email, .textarea{
+    border: 1px solid #b4b4b4;
+    color: #888;
+    background: #fff;
+    outline: none;
+    padding: 15px 60px;
+    height: 45px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    transition: all 0.5s;
+}
+.textarea{
+    width: 100%;
+    height: 150px;
+    resize: none;
+}
+.input-text , .input-email{
+    width: 100%;
+}
+.inputConIcon{
+    width: 48%;
+    position: relative;
+}
+.inputConIcon i{
+    position: absolute;
+    left: 0;
+    padding: 14px 15px;
+    background-color: #888;
+    color: #fff;
+    transition: all 0.5s;
+}
+.texareaIcon{
+    width: 100%;
+    position: relative;
+}
+.texareaIcon i{
+    position: absolute;
+    left: 17px;
+    top: 13px;
+    background: transparent;
+    color: #888;
+    padding: 0;
+    font-size: 25px;
+    transition: all 0.5s;
+}
+.inputConIcon input:focus,
+.texareaIcon textarea:focus{
+    border: 1px solid var(--color-Primario--);
+}
+/* Le indicamos cuando este en el focus le agrege estilos a nuestros iconos */
+.inputConIcon input:focus + i{
+    background-color: var(--color-Primario--);
+}
+.texareaIcon textarea:focus + i{
+    color: var(--color-Primario--);
+}
+.fields-btn{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+.btn-input{
+    padding: 15px 50px;
+}
+.btn-input:hover{
+    padding: 15px 65px;
+}
+
+
+
+/* ESTILOs ALERTAS */
+.alertas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.alert{
+    width: 60%;
+    padding: 20px 60px;
+    position: fixed;
+    top: 0;
+    transition: all 0.5s;
+}
+
+
+.alert.show{
+    transform: translateY(50%);
+}
+
+.alert.hide{
+    transform: translateY(-100%);
+}
+.alert .icono-alert{
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+}
+.alert .msg{
+    padding: 0 20px;
+    font-size: 18px;
+}
+
+#alertError{
+    background: #f8d7da;
+    border-right: 4px solid #da3748;
+}
+
+#alertError .icono-alert{
+    color: #da3748;
+}
+#alertError .msg{
+    color: #721c24;
+}
+
+/* Estilos alert exitosa */
+
+#alertSuccess{
+    background: #d4edda;
+    border-right: 4px solid #279e43;
+}
+#alertSuccess .icono-alert{
+    color: #279e43;
+}
+#alertSuccess .msg{
+    color: #155724;
+}
+
+/* ESTILOS FOOTER */
+
+footer{
+    display: flex;
+    margin-top: -100px;
+}
+.sociales-metodo{
+    width: 25%;
+    height: 100px;
+    background: #333;
+    color: #fff;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+.sociales-metodo i{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    font-size: 30px;
+    line-height: 100px;
+    transition: all 0.5s;
+    transition: all 0.5s;
+}
+.sociales-metodo span{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    padding: 10px 0;
+    font-size: 12px;
+    background: var(--color-Primario--);
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: 700;
+    transform: translateY(60px);
+    transition: all 0.5s;
+}
+/* Aplicamos estilos a la etiqueta span cuando pase el hover en el icono */
+.sociales-metodo i:hover + span{
+    transform: translateY(0px);
+}
+
+.sociales-metodo i:hover{
+    transform: translateY(-20px);
+}
+
+/* ESTILOS BOTON ARRIBA */
+#btn-top{
+    width: 50px;
+    height: 50px;
+    background: var(--color-Primario--);
+    cursor: pointer;
+    /* Le indicamos  que nuestro boton siempre se encuentre abajo*/
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    /* Le indicamos que siempre se mantenga por encima de cualquier elemento */
+    z-index: 1;
+    transition: all 0.5s;
+    transform: translateY(200%);
+}
+#btn-top.show{
+    transform: translateY(0%);
+}
+#btn-top.scroollFinal{
+    transform: translateY(-250%);
+}
+
+#btn-top span{
+    color: #fff;
+    font-size: 25px;
+    width: 100%;
+    text-align: center;
+    line-height: 50px;
+    transition: all 0.5s;
+}
+
+#btn-top:hover{
+    background: #d89127;
+}
+#btn-top:hover span{
+    transform: translateY(-7px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* -   -   -   -  - */
+
+/* Aplicamos la media query para el slider */
+
+/* Media query de 850px */
+@media screen and (max-width:850px) {
+    .container-productos{
+        flex-direction: column;
+    }
+    .descripcion-productos{
+        width: 70%;
+        order: 1;
+    }
+    
+    .descripcion-productos {
+        padding: 10px 20px;
+        /* margin-bottom: 20px; */
+    }
+    .descripcion-productos.btn:hover{
+        
+        padding: 0px 30px;
+    }
+
+    /* SECCION DE GRID -SERVICIOS */
+    .imagen-central{
+        display: none;
+    }
+    .servicios-container{
+        grid-template-columns: repeat(2,1fr);
+        grid-template-areas: "  ingredientes  rapidez"
+                                "calidad    delivery";
+    }
+}
+
+/* Creamos la media query para el menu */
+/* Media Query de 650px */
+@media screen and (max-width:650px) {
+    .menu-principal {
+        position: fixed;
+        top: 0;
+        margin-top: 0;
+    }
+
+    .menu-principal i {
+        display: block;
+    }
+
+    .menu-bar {
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: 1000;
+        background-color: #333;
+        transition: all 1s;
+        transform: translateX(100%);
+
+    }
+
+    .menu-bar.active {
+        transform: translateX(0%);
+
+    }
+
+    .menu-bar i {
+        position: absolute;
+        right: 50px;
+        top: 50px;
+    }
+
+    /* Aplicamos estilos para los enlaces */
+
+    .menu-bar .enlaces ul li {
+        display: block;
+        padding: 20px 10px;
+        text-align: center;
+    }
+
+    .menu-bar .enlaces ul li,
+    .menu-bar .sociales a {
+        font-size: 20px;
+    }
+
+    /* Slider Productos */
+
+    .slider{
+        height: calc(100vh - 0px);
+    }
+    .imagen-productos{
+        width: 65%;
+    }
+    .descripcion-productos h1{
+        font-size: 7vw;
+    }
+    .descripcion-productos h2{
+        font-size: 3vw;
+    }
+
+    /* Estilos ingredientes*/
+    .info-ingre .txt-ingre{
+        display: none;
+    }
+    
+    /* Estilos Seccion Contacto */
+
+    #formulario{
+        width: 100%;
+    }
+    
+    .two-fields{
+        flex-direction: column;
+    }
+    .inputConIcon{
+        width: 100%;
+    }
+
+    /* Estilos para las alertas */
+    .alert{
+        width: 100%;
+
+    }
+    .alert.show{
+        transform: translateY(150%);
+    }
+    
+    /* SECCION FOOTER ESTILOS */
+    footer{
+        flex-wrap: wrap;
+        margin-top: 0;
+    }
+    .sociales-metodo{
+        width: 50%;
+    }
+    /* Estilos FORMULARIO */
+    .fields-btn{
+        margin-top: -30px;
+    }
+
+    /* ESTILO BOTON ARRIBA */
+
+    #btn-top{
+        display: none;
+    }
+
+
+  
+}
